@@ -1,9 +1,11 @@
 pipeline {
     agent any
+    stages{
 
-    stages ("deploy"){
-        steps {
-            sh './Scripts/deploy.sh ${SERVER}'
+        stage("deploy"){
+            steps {
+                sh './Scripts/deploy.sh ${SERVER}'
+            }
         }
     }
 }
