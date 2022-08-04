@@ -50,7 +50,7 @@ echo "unzip installed"
 
 #Extracting the zip file
 
-unzip latest.zip -y
+unzip latest.zip 
 
 echo "unzipping done"
 
