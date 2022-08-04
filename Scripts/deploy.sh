@@ -1,8 +1,8 @@
-timeout 100 ssh -i ~/Downloads/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite/52.66.45.141"
+timeout 100 ssh -i ~/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite/52.66.45.141"
 
 echo "directory created"
 
-timeout 200 ssh -t -i ~/Downloads/butterjam.pem ubuntu@52.66.45.141 <<EOF
+timeout 200 ssh -t -i ~/butterjam.pem ubuntu@52.66.45.141 <<EOF
 
 sudo touch /etc/nginx/sites-available/52.66.45.141
 
