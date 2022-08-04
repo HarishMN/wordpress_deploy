@@ -4,6 +4,7 @@ echo "directory created"
 
 timeout 200 ssh -t -i ~/butterjam.pem ubuntu@52.66.45.141 <<EOF
 echo "installing php" 
+
 sudo apt install php -y
 
 echo "depandance packages"
