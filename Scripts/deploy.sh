@@ -33,6 +33,8 @@ echo "extaracting files"
 
 sudo mv wordpress /var/www/mysite
 
+echo "moved files to mgysite"
+
 cd /var/www/mysite
 
 sudo cp wp-config-sample.php wp-config.php
