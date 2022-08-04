@@ -49,7 +49,7 @@ sudo apt install unzip -y
 
 #Extracting the zip file
 
-unzip latest.zip
+unzip latest.zip -y
 
 #moving wordpress  file to
 
@@ -63,7 +63,7 @@ sudo touch /etc/nginx/sites-enabled/wordpress.conf
 
 sudo chmod 666 /etc/nginx/sites-enabled/wordpress.conf
 
-sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/wordpress.conf
+sudo ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/wordpress.conf -y
 
 sudo nginx -t
 
