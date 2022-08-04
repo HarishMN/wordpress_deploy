@@ -66,7 +66,7 @@ sudo touch /etc/nginx/sites-enabled/wordpress.conf
 
 sudo chmod 666 /etc/nginx/sites-enabled/wordpress.conf
 
-sudo ln -s -f /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/wordpress.conf 
+sudo ln -s -f /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/wordpress.conf  -y
 
 sudo nginx -t
 
