@@ -1,4 +1,4 @@
-timeout 100 ssh -i ~/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite/52.66.45.141"
+timeout 100 ssh -i ~/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite/msite"
 
 echo "directory created"
 
@@ -39,18 +39,25 @@ cd /var/www/mysite
 
 sudo cp wp-config-sample.php wp-config.php
 
-sudo touch /etc/nginx/sites-available/52.66.45.141
+sudo touch /etc/nginx/sites-available/msite
+sudo touch /var/log/nginx/msite.err.log
+sudo touch /var/log/nginx/msite.log
+
 
 #tee is used to write output to the file
   
-sudo tee  /etc/nginx/sites-available/52.66.45.141 <<'eof'                      
+sudo tee  /etc/nginx/sites-available/msite <<'eof'                      
 
 
 server {
 	listen			3001;
 	server_name		52.66.45.141;
-	root			/var/www/mysite/52.66.45.141;
+	root			/var/www/mysite/msite;
 	index			index.php;
+
+    error_log	/var/log/nginx/msite.err.log;
+	access_log	/var/log/nginx/msite.log;
+
     location / {
 		try_files $uri $uri/ /index.php$is_args$args;
 		}
@@ -65,7 +72,7 @@ server {
 
 eof
 
-sudo ln -s -f /etc/nginx/sites-available/52.66.45.141  /etc/nginx/sites-enabled/wordpress.conf 
+sudo ln -s -f /etc/nginx/sites-available/msite  /etc/nginx/sites-enabled/wordpress.conf 
 
 sudo nginx -t
 
