@@ -3,6 +3,34 @@ timeout 100 ssh -i ~/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite
 echo "directory created"
 
 timeout 200 ssh -t -i ~/butterjam.pem ubuntu@52.66.45.141 <<EOF
+echo "installing php" 
+sudo apt install php -y
+
+echo "depandance packages"
+sudo apt install php-mysql php-gd php-common php-mbstring php-curl php cli -y
+
+sudo apt install php-fpm -y
+
+sudo systemctl enable php-fpm
+
+sudo systemctl restart php-fpm
+
+
+#Downloading wordpress website 
+
+wget wordpress.org/latest.tar.gz
+
+# Extracting the zip file
+
+tar xvf latest.tar.gz
+
+echo"extaracting files"
+
+#moving wordpress to mysite
+sudo mv wordpress /var/www/mysite
+
+cd /var/www/mysite.computingforgeeks.com
+sudo cp wp-config-sample.php wp-config.php
 
 sudo touch /etc/nginx/sites-available/52.66.45.141
 
@@ -30,51 +58,7 @@ server {
 
 eof
 
-
-echo "installing php" 
-sudo apt install php -y
-
-echo "depandance packages"
-sudo apt install php-mysql php-gd php-common php-mbstring php-curl php cli -y
-
-sudo apt install php-fpm -y
-
-sudo systemctl enable php-fpm
-
-sudo systemctl restart php-fpm
-
-
-#Downloading wordpress website 
-
-wget http://wordpress.org/latest.zip
-
-# #installing unzip
-# sudo apt install unzip -y
-# echo "unzip installed"
-
-# #Extracting the zip file
-
-# unzip latest.zip
-
-# echo "unzipping done"
-
-tar xvf latest.tar.gz
-
-echo"extaracting files"
-
-#moving wordpress  file to
-
-sudo mv wordpress/* /var/www/mysite  -y
-
-#removing default file
-
-#sudo rm /etc/nginx/sites-enabled/default
-
-sudo touch /etc/nginx/sites-enabled/wordpress.conf 
-
-sudo chmod 666 /etc/nginx/sites-enabled/wordpress.conf
-
-sudo ln -s -f /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/wordpress.conf  -y
+sudo ln -s -f /etc/nginx/sites-available/52.66.45.141  /etc/nginx/sites-enabled/wordpress.conf 
 
 sudo nginx -t
 
