@@ -29,7 +29,7 @@ echo"extaracting files"
 #moving wordpress to mysite
 sudo mv wordpress /var/www/mysite
 
-cd /var/www/mysite.computingforgeeks.com
+cd /var/www/mysite
 sudo cp wp-config-sample.php wp-config.php
 
 sudo touch /etc/nginx/sites-available/52.66.45.141
