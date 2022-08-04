@@ -15,6 +15,9 @@ sudo systemctl enable php-fpm
 
 sudo systemctl restart php-fpm
 
+#mkdir temp
+
+#cd temp
 
 #Downloading wordpress website 
 
@@ -24,7 +27,7 @@ wget wordpress.org/latest.tar.gz
 
 tar xvf latest.tar.gz
 
-echo"extaracting files"
+echo "extaracting files"
 
 #moving wordpress to mysite
 
