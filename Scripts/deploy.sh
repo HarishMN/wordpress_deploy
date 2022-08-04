@@ -53,7 +53,7 @@ unzip latest.zip
 
 #moving wordpress  file to
 
-sudo mv wordpress/* /var/www/mysite
+sudo mv wordpress/* /var/www/mysite -y
 
 #removing default file
 
