@@ -53,11 +53,11 @@ unzip latest.zip -y
 
 #moving wordpress  file to
 
-sudo mv wordpress/* /var/www/mysite -y
+sudo mv wordpress/* /var/www/mysite 
 
 #removing default file
 
-sudo rm /etc/nginx/sites-enabled/default
+#sudo rm /etc/nginx/sites-enabled/default
 
 sudo touch /etc/nginx/sites-enabled/wordpress.conf 
 
