@@ -39,20 +39,28 @@ sudo apt install php-mysql php-gd php-common php-mbstring php-curl php cli -y
 
 sudo apt install php-fpm -y
 
+sudo systemctl enable php-fpm
+
+sudo systemctl restart php-fpm
+
 
 #Downloading wordpress website 
 
 wget http://wordpress.org/latest.zip
 
-#installing unzip
-sudo apt install unzip -y
-echo "unzip installed"
+# #installing unzip
+# sudo apt install unzip -y
+# echo "unzip installed"
 
-#Extracting the zip file
+# #Extracting the zip file
 
-unzip latest.zip 
+# unzip latest.zip
 
-echo "unzipping done"
+# echo "unzipping done"
+
+tar xvf latest.tar.gz
+
+echo"extaracting files"
 
 #moving wordpress  file to
 
