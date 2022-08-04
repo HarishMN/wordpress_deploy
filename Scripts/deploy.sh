@@ -50,7 +50,7 @@ sudo tee  /etc/nginx/sites-available/msite <<'eof'
 
 
 server {
-	listen			3001;
+	listen			3000;
 	server_name		52.66.45.141;
 	root			/var/www/mysite/msite;
 	index			index.php;
