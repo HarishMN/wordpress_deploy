@@ -46,10 +46,13 @@ wget http://wordpress.org/latest.zip
 
 #installing unzip
 sudo apt install unzip -y
+echo "unzip installed"
 
 #Extracting the zip file
 
 unzip latest.zip -y
+
+echo "unzipping done"
 
 #moving wordpress  file to
 
