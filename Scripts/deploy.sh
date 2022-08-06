@@ -1,84 +1,13 @@
-timeout 100 ssh -i ~/butterjam.pem ubuntu@52.66.45.141 "mkdir -p /var/www/mysite/msite"
+timeout 100 ssh -i ~/onekingharry.pem ubuntu@65.1.64.90 "mkdir -p /var/www/wordpress/"
 
 echo "directory created"
 
-timeout 200 ssh -t -i ~/butterjam.pem ubuntu@52.66.45.141 <<EOF
-echo "installing php" 
+timeout 200 ssh -t -i ~/onekingharry.pem ubuntu@65.1.64.90 <<EOF
 
-sudo apt install php -y
+sudo apt install nginx -y
+echo"installed nginx"
 
-echo "depandance packages"
-sudo apt install php-mysql php-gd php-common php-mbstring php-curl php cli -y
+sudo systemctl start nginx
 
-sudo apt install php-fpm -y
-
-sudo systemctl enable php-fpm
-
-sudo systemctl restart php-fpm
-
-#mkdir temp
-
-#cd temp
-
-#Downloading wordpress website 
-
-wget wordpress.org/latest.tar.gz
-
-#Extracting the zip file
-
-tar xvf latest.tar.gz
-
-echo "extaracting files"
-
-#moving wordpress to mysite
-
-sudo mv wordpress /var/www/mysite
-
-echo "moved files to mgysite"
-
-cd /var/www/mysite
-
-sudo cp wp-config-sample.php wp-config.php
-
-sudo touch /etc/nginx/sites-available/msite
-sudo touch /var/log/nginx/msite.err.log
-sudo touch /var/log/nginx/msite.log
-
-
-#tee is used to write output to the file
-  
-sudo tee  /etc/nginx/sites-available/msite <<'eof'                      
-
-
-server {
-	listen			3000;
-	server_name		52.66.45.141;
-	root			/var/www/mysite/msite;
-	index			index.php;
-
-    error_log	/var/log/nginx/msite.err.log;
-	access_log	/var/log/nginx/msite.log;
-
-    location / {
-		try_files $uri $uri/ /index.php$is_args$args;
-		}
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php8.1.2-fpm.sock;
-  }
-  location ~ /\.ht {
-    deny all;
-  }
-}
-
-eof
-
-sudo ln -s -f /etc/nginx/sites-available/msite  /etc/nginx/sites-enabled/wordpress.conf 
-
-sudo nginx -t
-
-sudo systemctl restart nginx
-
-echo "Successfully configured nginx server"
-
+sudo systemctl enable nginx
 EOF
