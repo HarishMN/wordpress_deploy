@@ -62,6 +62,5 @@ server {
 }
 eof
 sudo systemctl restart nginx
-sudo systemctl enable nginx
 echo "configured nginx"
 EOF
