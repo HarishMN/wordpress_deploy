@@ -41,7 +41,7 @@ sudo chmod -R 755 /var/www/html/
 cd /var/www/html
 echo "in the folder"
 
-sudo tee -a /etc/nginx/sites-enabled/wordpress.conf <<'eof'
+sudo tee -a /etc/nginx/sites-enabled/wordpress.conf <<"eof"
 
 server {
 	listen			80;
