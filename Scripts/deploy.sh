@@ -38,5 +38,5 @@ sudo chown -R www-data:www-data /var/www/html/
 sudo chmod -R 755 /var/www/html/    
 
 cd /var/www/html
-echo"in the folder"
+echo "in the folder"
 EOF
