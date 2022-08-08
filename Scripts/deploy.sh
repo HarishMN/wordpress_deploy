@@ -4,7 +4,7 @@ echo "directory created"
 
 timeout 200 ssh -t -i ~/onekingharry.pem ubuntu@65.1.64.90 <<EOF
 
-sudo apt install nginx -y
+echo "sudo apt install nginx -y"
 echo"installed nginx"
 
 sudo systemctl start nginx
