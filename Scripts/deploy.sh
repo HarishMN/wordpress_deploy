@@ -11,21 +11,27 @@ sudo systemctl start nginx
 
 sudo systemctl enable nginx
 
-sudo apt install mariadb-server -y
+echo"sudo apt install mariadb-server -y"
 
 sudo  systemctl start mariadb
 sudo systemctl enable mariadb
 
-sudo apy install php -y
+echo"sudo apy install php -y"
 
-sudo apt install php-mysql php-gd php-common php-mbstring php-curl php-cli -y
+echo"sudo apt install php-mysql php-gd php-common php-mbstring php-curl php-cli -y"
 sudo systemctl restart nginx
 
-sudo apt install php-fpm -y
+echo"sudo apt install php-fpm -y"
 
 wget https://wordpress.org/latest.zip
 
-sudo apt install unzip -y
+echo"sudo apt install unzip -y"
 
 unzip latest.zip
+echo"unziped latest.zip"
+
+sudo mv wordpress/* /var/www/html
+echo"moved wordpress to html"
+cd /var/www/html
+echo"in the folder"
 EOF
