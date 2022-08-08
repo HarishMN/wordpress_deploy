@@ -22,4 +22,10 @@ sudo apt install php-mysql php-gd php-common php-mbstring php-curl php-cli -y
 sudo systemctl restart nginx
 
 sudo apt install php-fpm -y
+
+wget https://wordpress.org/latest.zip
+
+sudo apt install unzip -y
+
+unzip latest.zip
 EOF
