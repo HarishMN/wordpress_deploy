@@ -39,4 +39,29 @@ sudo chmod -R 755 /var/www/html/
 
 cd /var/www/html
 echo "in the folder"
+
+sudo tee -a /etc/nginx/sites-enabled/wordpress.conf <<'eof'
+server {
+	listen			80;
+	server_name		65.1.64.90;
+	root			/var/www/html;
+	index			index.php;
+    location / {
+		try_files $uri $uri/ /index.php?$args;
+		}
+		
+    lcation ~ \.php${
+     		include snippets/fastcgi-php.conf
+     		fastcgi_pass unix:/var/run/php/php.8.1fpm.sock;
+     	}
+    location ~ /\.ht {
+     		deny all;
+     	}
+}
+eof
+sudo systemctl restart nginx
+
+sudo systemctl enable nginx
+
+echo "configured nginx"
 EOF
