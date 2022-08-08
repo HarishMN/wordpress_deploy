@@ -49,13 +49,13 @@ server {
 	root			/var/www/html;
 	index			index.php;
     location / {
-		try_files $uri $uri/ /index.php?$args;
+		try_files "$uri" "$uri/" "/index.php?$args";
 	}
 		
-    lcation ~ \.php${
+    location ~ \.php "${
      		include snippets/fastcgi-php.conf
      		fastcgi_pass unix:/var/run/php/php.8.1fpm.sock;
-    }
+    }"
     location ~ /\.ht {
      		deny all;
     }
