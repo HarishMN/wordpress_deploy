@@ -31,7 +31,10 @@ echo "sudo apt install php-fpm -y"
  echo "unziping tar file"
 
  rsync -av wordpress/* /var/www/html/
- echo "synced  wordpress  to html"  
+ echo "synced  wordpress  to html"
+
+  chown -R www-data:www-data /var/www/html/  
+ chmod -R 755 /var/www/html/    
 
 cd /var/www/html
 echo"in the folder"
