@@ -41,6 +41,7 @@ cd /var/www/html
 echo "in the folder"
 
 sudo tee -a /etc/nginx/sites-enabled/wordpress.conf <<'eof'
+
 server {
 	listen			80;
 	server_name		65.1.64.90;
@@ -59,6 +60,7 @@ server {
      	}
 }
 eof
+
 sudo systemctl restart nginx
 
 sudo systemctl enable nginx
