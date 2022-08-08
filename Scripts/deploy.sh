@@ -23,19 +23,19 @@ sudo systemctl restart nginx
 
 echo "sudo apt install php-fpm -y"
 
- wget -c http://wordpress.org/latest.tar.gz
+wget -c http://wordpress.org/latest.tar.gz
 
- echo "downloaded wordpress file"  
+echo "downloaded wordpress file"  
  
- tar -xzvf latest.tar.gz
- echo "unziping tar file"
+tar -xzvf latest.tar.gz
+echo "unziping tar file"
 
 
- sudo rsync -av wordpress/* /var/www/html/
- echo "synced  wordpress  to html"
+sudo rsync -av wordpress/* /var/www/html/
+echo "synced  wordpress  to html"
 
- sudo chown -R www-data:www-data /var/www/html/  
- chmod -R 755 /var/www/html/    
+sudo chown -R www-data:www-data /var/www/html/  
+sudo chmod -R 755 /var/www/html/    
 
 cd /var/www/html
 echo"in the folder"
