@@ -48,14 +48,14 @@ server {
 	server_name		65.1.64.90;
 	root			/var/www/html;
 	index			index.php;
-    location / {
-		try_files "$uri" "$uri/" "/index.php?$args";
+   location / {
+		try_files \$uri \$uri/ /index.php\$is_args\$args;
 	}
-		
-    location ~ \.php "${
-     		include snippets/fastcgi-php.conf
-     		fastcgi_pass unix:/var/run/php/php.8.1fpm.sock;
-    }"
+
+	location ~ \.php\$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+	}
     location ~ /\.ht {
      		deny all;
     }
